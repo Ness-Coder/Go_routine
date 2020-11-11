@@ -3,8 +3,7 @@ package main
 import (
 	"fmt"
 	"time"
-	"os"
-	"os/exec"
+
 )
 
 type proceso struct { //Estructura de los datos que se ocuparian.
@@ -91,8 +90,7 @@ func main(){
 								v.empezarConteo()
 							}
 							time.Sleep(time.Second)
-							out, _ := exec.Command("clear").Output()
-							os.Stdout.Write(out)
+
 						}
 					}
 				}()
@@ -110,10 +108,10 @@ func main(){
 			fmt.Print("Ingresa id : ")
 			fmt.Scan(&i)
 			var element *proceso
-			for idx, e := range enListar {
-				if e.id == i {
-					element = &e
-					enListar = append(enListar[:idx], enListar[idx+1:]...)
+			for id, a := range enListar {
+				if a.id == i {
+					element = &a
+					enListar = append(enListar[:id], enListar[id+1:]...)
 					break
 				}
 			}
